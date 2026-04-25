@@ -14,7 +14,7 @@ paru -S --needed --noconfirm cachyos-gaming-meta cachyos-gaming-applications
 
 
 ## DEV ##
-paru -S --needed --noconfirm zed neovim
+paru -S --needed --noconfirm zed vis
 
 # Rust
 curl --proto '=https' --tlsv1.2 https://sh.rustup.rs -sSf | sh -s -- -y # Rustup
