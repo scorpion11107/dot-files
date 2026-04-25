@@ -2,7 +2,7 @@
 set -e
 
 ## SYSTEM ##
-paru -S --needed --noconfirm foot fish starship curl wget file openssl
+paru -S --needed --noconfirm fish starship curl wget file openssl
 
 
 ## APPS ##
