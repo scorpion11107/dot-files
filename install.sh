@@ -1,3 +1,6 @@
+#!/bin/bash
+set -e
+
 ## SYSTEM ##
 paru -S --needed --noconfirm foot fish starship curl wget file openssl
 
@@ -15,7 +18,7 @@ paru -S --needed --noconfirm zed neovim
 
 # Rust
 curl --proto '=https' --tlsv1.2 https://sh.rustup.rs -sSf | sh -s -- -y # Rustup
-sudo pacman -S --needed --noconfirm webkit2gtk-4.1 base-devel appmenu-gtk-module libappindicator-gtk3 librsvg xdotool # Tauri dependencies
+paru -S --needed --noconfirm webkit2gtk-4.1 base-devel appmenu-gtk-module libappindicator-gtk3 librsvg xdotool # Tauri dependencies
 
 
 ## AUR ##
