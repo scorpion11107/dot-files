@@ -3,7 +3,7 @@ set -e
 
 
 ## SYSTEM ##
-sudo apt install -y fish curl wget unzip
+sudo apt install -y fish curl wget unzip eza
 chsh -s $(which fish)
 
 # Rust
