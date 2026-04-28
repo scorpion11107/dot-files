@@ -3,14 +3,19 @@ set -e
 
 ## SYSTEM ##
 sudo apt install -y fish curl wget
-curl -sS https://starship.rs/install.sh | sudo sh
 chsh -s $(which fish)
+
+# Rust
+curl --proto '=https' --tlsv1.2 https://sh.rustup.rs -sSf | sh
 
 # JetBrains Nerd Font
 wget -q https://github.com/ryanoasis/nerd-fonts/releases/latest/download/JetBrainsMono.zip
 sudo unzip -q JetBrainsMono.zip -d /usr/local/share/fonts/JetBrainsMono
 sudo fc-cache -f
 rm JetBrainsMono.zip
+
+# Starship
+cargo install starship --locked
 
 
 ## APPS ##
@@ -32,9 +37,6 @@ echo "deb [signed-by=/usr/share/keyrings/vscodium-archive-keyring.gpg] \
   | sudo tee /etc/apt/sources.list.d/vscodium.list > /dev/null
 sudo apt update && sudo apt install -y codium
 
-# Rust
-curl --proto '=https' --tlsv1.2 https://sh.rustup.rs -sSf | sh
-
 # Tauri
 sudo apt install -y libwebkit2gtk-4.1-dev \
   build-essential \
@@ -43,7 +45,7 @@ sudo apt install -y libwebkit2gtk-4.1-dev \
   libssl-dev \
   libayatana-appindicator3-dev \
   librsvg2-dev
-cargo install create-tauri-app
+cargo install create-tauri-app --locked
 
 
 ## CLEANUP ##
