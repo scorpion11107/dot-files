@@ -25,6 +25,7 @@ cargo install starship --locked
 sudo apt install -y firefox steam
 
 # Flatpaks
+flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
 flatpak install -y flathub com.discordapp.Discord
 flatpak install -y flathub com.modrinth.ModrinthApp
 flatpak install -y flathub com.spotify.Client
