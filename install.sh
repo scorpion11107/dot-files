@@ -1,12 +1,14 @@
 #!/bin/bash
 set -e
 
+
 ## SYSTEM ##
-sudo apt install -y fish curl wget
+sudo apt install -y fish curl wget unzip
 chsh -s $(which fish)
 
 # Rust
-curl --proto '=https' --tlsv1.2 https://sh.rustup.rs -sSf | sh
+curl --proto '=https' --tlsv1.2 https://sh.rustup.rs -sSf | sh -s -- -y
+source $HOME/.cargo/env
 
 # JetBrains Nerd Font
 wget -q https://github.com/ryanoasis/nerd-fonts/releases/latest/download/JetBrainsMono.zip
@@ -21,13 +23,14 @@ cargo install starship --locked
 ## APPS ##
 sudo apt install -y firefox steam
 
-#Flatpaks
+# Flatpaks
 flatpak install -y flathub com.discordapp.Discord
 flatpak install -y flathub com.modrinth.ModrinthApp
 flatpak install -y flathub com.spotify.Client
 
 
 ## DEV ##
+
 # VSCodium — add the official apt repository
 wget -qO- https://gitlab.com/paulcarroty/vscodium-deb-rpm-repo/raw/master/pub.gpg \
   | gpg --dearmor \
@@ -50,4 +53,4 @@ cargo install create-tauri-app --locked
 
 ## CLEANUP ##
 sudo apt autoremove -y
-sudo apt update && sudo apt upgrade
+sudo apt update && sudo apt upgrade -y
