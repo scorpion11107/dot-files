@@ -2,29 +2,50 @@
 set -e
 
 ## SYSTEM ##
-paru -S --needed --noconfirm fish starship curl wget file openssl
+sudo apt install -y fish curl wget
+curl -sS https://starship.rs/install.sh | sh
+chsh -s $(which fish)
+
+# JetBrains Nerd Font
+wget -q https://github.com/ryanoasis/nerd-fonts/releases/latest/download/JetBrainsMono.zip
+sudo unzip -q JetBrainsMono.zip -d /usr/local/share/fonts/JetBrainsMono
+sudo fc-cache -f
+rm JetBrainsMono.zip
 
 
 ## APPS ##
-paru -S --needed --noconfirm firefox discord
+sudo apt install -y firefox steam
 
-
-## GAMING (CachyOS related) ##
-paru -S --needed --noconfirm cachyos-gaming-meta cachyos-gaming-applications
+#Flatpaks
+flatpak install -y flathub com.discordapp.Discord
+flatpak install -y flathub com.modrinth.ModrinthApp
+flatpak install -y flathub com.spotify.Client
 
 
 ## DEV ##
-paru -S --needed --noconfirm zed vis
+# VSCodium — add the official apt repository
+wget -qO- https://gitlab.com/paulcarroty/vscodium-deb-rpm-repo/raw/master/pub.gpg \
+  | gpg --dearmor \
+  | sudo dd of=/usr/share/keyrings/vscodium-archive-keyring.gpg
+echo "deb [signed-by=/usr/share/keyrings/vscodium-archive-keyring.gpg] \
+  https://download.vscodium.com/debs vscodium main" \
+  | sudo tee /etc/apt/sources.list.d/vscodium.list > /dev/null
+sudo apt update && sudo apt install -y codium
 
 # Rust
-curl --proto '=https' --tlsv1.2 https://sh.rustup.rs -sSf | sh -s -- -y # Rustup
-paru -S --needed --noconfirm webkit2gtk-4.1 base-devel appmenu-gtk-module libappindicator-gtk3 librsvg xdotool # Tauri dependencies
+curl --proto '=https' --tlsv1.2 https://sh.rustup.rs -sSf | sh -s -- -y
+
+# Tauri
+sudo apt install -y libwebkit2gtk-4.1-dev \
+  build-essential \
+  file \
+  libxdo-dev \
+  libssl-dev \
+  libayatana-appindicator3-dev \
+  librsvg2-dev
+cargo install create-tauri-app
 
 
-## AUR ##
-paru -S --needed --noconfirm modrinth-app spotify
-
-
-## CLEANUP (CachyOS related) ##
-paru -Rcs --noconfirm alacritty evince meld micro vim zsh
-orphans=$(pacman -Qdtq) && sudo pacman -Rsn --noconfirm $orphans
+## CLEANUP ##
+sudo apt autoremove -y
+sudo apt update && sudo apt upgrade
