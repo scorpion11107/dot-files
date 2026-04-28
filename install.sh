@@ -57,3 +57,7 @@ cargo install create-tauri-app --locked
 ## CLEANUP ##
 sudo apt autoremove -y
 sudo apt update && sudo apt upgrade -y
+
+
+## CONFIG ##
+cp .config/fish/config.fish ~/.config/fish/config.fish
