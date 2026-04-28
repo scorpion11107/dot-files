@@ -11,6 +11,7 @@ curl --proto '=https' --tlsv1.2 https://sh.rustup.rs -sSf | sh -s -- -y
 source $HOME/.cargo/env
 
 # JetBrains Nerd Font
+echo "installing JetBrains nerd font"
 wget -q https://github.com/ryanoasis/nerd-fonts/releases/latest/download/JetBrainsMono.zip
 sudo unzip -q JetBrainsMono.zip -d /usr/local/share/fonts/JetBrainsMono
 sudo fc-cache -f
