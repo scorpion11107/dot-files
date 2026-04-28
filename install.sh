@@ -3,7 +3,7 @@ set -e
 
 ## SYSTEM ##
 sudo apt install -y fish curl wget
-curl -sS https://starship.rs/install.sh | sh -s -- -y
+curl -sS https://starship.rs/install.sh | sh
 chsh -s $(which fish)
 
 # JetBrains Nerd Font
