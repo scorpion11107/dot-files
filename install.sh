@@ -3,7 +3,7 @@ set -e
 
 ## SYSTEM ##
 sudo apt install -y fish curl wget
-curl -sS https://starship.rs/install.sh | sh
+curl -sS https://starship.rs/install.sh | sudo sh
 chsh -s $(which fish)
 
 # JetBrains Nerd Font
@@ -33,7 +33,7 @@ echo "deb [signed-by=/usr/share/keyrings/vscodium-archive-keyring.gpg] \
 sudo apt update && sudo apt install -y codium
 
 # Rust
-curl --proto '=https' --tlsv1.2 https://sh.rustup.rs -sSf | sh -s -- -y
+curl --proto '=https' --tlsv1.2 https://sh.rustup.rs -sSf | sh
 
 # Tauri
 sudo apt install -y libwebkit2gtk-4.1-dev \
