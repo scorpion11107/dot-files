@@ -32,6 +32,7 @@ flatpak install -y flathub com.spotify.Client
 
 
 ## DEV ##
+sudo apt install -y neovim
 
 # VSCodium — add the official apt repository
 wget -qO- https://gitlab.com/paulcarroty/vscodium-deb-rpm-repo/raw/master/pub.gpg \
