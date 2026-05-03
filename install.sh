@@ -72,7 +72,7 @@ kill $SUDO_PID
 
 ## WALLPAPERS ##
 echo "Copying wallpapers..."
-cp walls ~/Pictures
+cp -r walls ~/Pictures
 
 ## SSH KEY ##
 echo "Generating SSH key for GitHub..."
