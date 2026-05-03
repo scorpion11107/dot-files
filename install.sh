@@ -72,9 +72,8 @@ kill $SUDO_PID
 
 ## WALLPAPERS ##
 echo "Copying wallpapers..."
-cp -r walls ~/Pictures
+silent cp -r walls ~/Pictures
 
-## SSH KEY ##
 ## SSH KEY ##
 echo "Generating SSH key for GitHub..."
 if [ -f ~/.ssh/id_ed25519 ]; then
@@ -85,8 +84,6 @@ fi
 silent ssh-add ~/.ssh/id_ed25519
 echo ""
 echo "Add the following public key to your GitHub account:"
-echo ""
-cat ~/.ssh/id_ed25519.pub
 echo ""
 cat ~/.ssh/id_ed25519.pub
 echo ""
