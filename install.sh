@@ -70,6 +70,8 @@ echo "Copying wallpapers..."
 silent cp -r walls ~/Pictures
 
 ## SSH KEY ##
+echo "Creating git redirect for GitHub from HTTPS to SSH..."
+silent git config --global url."git@github.com:".insteadOf "https://github.com/"
 echo "Generating SSH key for GitHub..."
 if [ -f ~/.ssh/id_ed25519 ]; then
     echo "SSH key already exists, skipping"
