@@ -37,7 +37,7 @@ silent paru -S --noconfirm --needed spotify
 echo "Installing Steam..."
 silent paru -S --noconfirm --needed steam
 echo "Installing Modrinth from the AUR..."
-silent paru -S --noconfirm --needed modrinth
+silent paru -S --noconfirm --needed modrinth-app
 
 ## CONFIG ##
 echo "Backing up old config..."
