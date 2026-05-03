@@ -9,4 +9,4 @@ This script was made for Endeavour OS, so it may not work anywhere else.
 
 ### Followup
 - set default terminal
-- - reboot
+- reboot
