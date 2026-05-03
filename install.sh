@@ -75,12 +75,18 @@ echo "Copying wallpapers..."
 cp -r walls ~/Pictures
 
 ## SSH KEY ##
+## SSH KEY ##
 echo "Generating SSH key for GitHub..."
-silent ssh-keygen -t ed25519 -C "github" -f ~/.ssh/id_ed25519 -N ""
-silent eval "$(ssh-agent -s)"
+if [ -f ~/.ssh/id_ed25519 ]; then
+    echo "SSH key already exists, skipping generation."
+else
+    silent ssh-keygen -t ed25519 -C "github" -f ~/.ssh/id_ed25519 -N ""
+fi
 silent ssh-add ~/.ssh/id_ed25519
 echo ""
 echo "Add the following public key to your GitHub account:"
+echo ""
+cat ~/.ssh/id_ed25519.pub
 echo ""
 cat ~/.ssh/id_ed25519.pub
 echo ""
