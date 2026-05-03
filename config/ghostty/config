@@ -1,1 +1,4 @@
 command = /usr/bin/fish
+
+window-width = 245
+window-height = 60
