@@ -3,15 +3,11 @@
 ## INIT ##
 clear
 sudo -v
-while true; do sudo -v; sleep 60; done &
-SUDO_PID=$!
 
 ## HELPER FUNCTION ##
 silent() {
     if ! "$@" > /dev/null 2>&1; then
         echo "✗ Command failed: $*" >&2
-        echo "Clearing sudo cache..."
-        kill $SUDO_PID
         exit 1
     fi
 }
@@ -63,12 +59,8 @@ if [ -n "$ORPHANS" ]; then
 else
     echo "No orphans found."
 fi
-echo "Clearing package cache..."
-silent sudo pacman -Sc --noconfirm
-echo "Clearing paru cache..."
-silent paru -Sc --noconfirm
-echo "Clearing sudo cache..."
-kill $SUDO_PID
+echo "Clearing pacman and paru caches..."
+silent sudo pacman -Sc --noconfirm && silent paru -Sc --noconfirm
 
 ## WALLPAPERS ##
 echo "Copying wallpapers..."
@@ -77,13 +69,11 @@ silent cp -r walls ~/Pictures
 ## SSH KEY ##
 echo "Generating SSH key for GitHub..."
 if [ -f ~/.ssh/id_ed25519 ]; then
-    echo "SSH key already exists, skipping generation."
+    echo "SSH key already exists, skipping"
 else
     silent ssh-keygen -t ed25519 -C "github" -f ~/.ssh/id_ed25519 -N ""
+    silent ssh-add ~/.ssh/id_ed25519
+    echo ""
+    echo "Add the following public key to your GitHub account:"
+    cat ~/.ssh/id_ed25519.pub
 fi
-silent ssh-add ~/.ssh/id_ed25519
-echo ""
-echo "Add the following public key to your GitHub account:"
-echo ""
-cat ~/.ssh/id_ed25519.pub
-echo ""
