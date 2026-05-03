@@ -16,9 +16,11 @@ silent() {
 echo "Updating system..."
 silent sudo pacman -Syu --noconfirm
 echo "Installing dependencies..."
-silent sudo pacman -S --noconfirm --needed paru fish starship git wget curl eza
+silent sudo pacman -S --noconfirm --needed paru git wget curl
 
 ## DEV TOOLS ##
+echo "Installing ghostty, fish, starship and eza"
+silent paru -S --noconfirm --needed ghostty fish starship eza
 echo "Installing Rust toolchain..."
 silent paru -S --noconfirm --needed rustup
 silent rustup default stable
@@ -41,15 +43,14 @@ silent paru -S --noconfirm --needed modrinth-app
 echo "Backing up old config..."
 silent cp -r ~/.config ~/.config.backup.$(date +%Y%m%d%H%M%S)
 echo "Symlinking config files for:"
+echo "ghostty"
+silent mkdir -p ~/.config/ghostty
+silent ln -sf "$(pwd)/config/ghostty/config" ~/.config/ghostty/config
 echo "fish"
 silent mkdir -p ~/.config/fish
 silent ln -sf "$(pwd)/config/fish/config.fish" ~/.config/fish/config.fish
 echo "starship"
 silent ln -sf "$(pwd)/config/starship.toml" ~/.config/starship.toml
-echo "konsole"
-silent mkdir -p ~/.local/share/konsole
-silent ln -sf "$(pwd)/config/konsole/Dotfiles.profile" ~/.local/share/konsole/Dotfiles.profile
-silent ln -sf "$(pwd)/config/konsole/CatppuccinMocha.colorscheme" ~/.local/share/konsole/CatppuccinMocha.colorscheme
 
 ## CLEANUP ##
 echo "Removing orphan packages..."
