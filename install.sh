@@ -48,7 +48,9 @@ silent mkdir -p ~/.config/ghostty
 silent ln -sf "$(pwd)/config/ghostty/config" ~/.config/ghostty/config
 echo "fish"
 silent mkdir -p ~/.config/fish
+silent mkdir -p ~/.config/fish/functions
 silent ln -sf "$(pwd)/config/fish/config.fish" ~/.config/fish/config.fish
+silent ln -sf "$(pwd)/config/fish/functions/update.fish" ~/.config/fish/functions/update.fish
 echo "starship"
 silent ln -sf "$(pwd)/config/starship.toml" ~/.config/starship.toml
 
