@@ -1,18 +1,20 @@
 #!/bin/bash
 
-## HELPER FUNCTION ##
-silent() {
-    if ! "$@" > /dev/null 2>&1; then
-        echo "✗ Command failed: $*" >&2
-        exit 1
-    fi
-}
-
 ## INIT ##
 clear
 sudo -v
 while true; do sudo -v; sleep 60; done &
 SUDO_PID=$!
+
+## HELPER FUNCTION ##
+silent() {
+    if ! "$@" > /dev/null 2>&1; then
+        echo "✗ Command failed: $*" >&2
+        echo "Clearing sudo cache..."
+        kill $SUDO_PID
+        exit 1
+    fi
+}
 
 ## DEPENDENCIES ##
 echo "Updating system..."
