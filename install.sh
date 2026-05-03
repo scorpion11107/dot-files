@@ -53,6 +53,32 @@ silent ln -sf "$(pwd)/config/konsole/Dotfiles.profile" ~/.local/share/konsole/Do
 silent ln -sf "$(pwd)/config/konsole/CatppuccinMocha.colorscheme" ~/.local/share/konsole/CatppuccinMocha.colorscheme
 
 
+## CLEANUP ##
+echo "Removing orphan packages..."
+ORPHANS=$(pacman -Qdtq)
+if [ -n "$ORPHANS" ]; then
+    silent sudo pacman -Rns --noconfirm $ORPHANS
+else
+    echo "No orphans found."
+fi
+echo "Clearing package cache..."
+silent sudo pacman -Sc --noconfirm
+echo "Clearing paru cache..."
+silent paru -Sc --noconfirm
+
+
 ## WALLPAPERS ##
 echo "Copying wallpapers..."
 cp walls ~/Pictures
+
+
+## SSH KEY ##
+echo "Generating SSH key for GitHub..."
+silent ssh-keygen -t ed25519 -C "github" -f ~/.ssh/id_ed25519 -N ""
+silent eval "$(ssh-agent -s)"
+silent ssh-add ~/.ssh/id_ed25519
+echo ""
+echo "Add the following public key to your GitHub account:"
+echo ""
+cat ~/.ssh/id_ed25519.pub
+echo ""
