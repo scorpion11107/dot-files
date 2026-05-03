@@ -16,7 +16,7 @@ silent() {
 echo "Updating system..."
 silent sudo pacman -Syu --noconfirm
 echo "Installing dependencies..."
-silent sudo pacman -S --noconfirm --needed paru git wget curl
+silent sudo pacman -S --noconfirm --needed paru git wget curl fastfetch
 
 ## DEV TOOLS ##
 echo "Installing ghostty, fish, starship and eza"
