@@ -19,8 +19,10 @@ echo "Installing dependencies..."
 silent sudo pacman -S --noconfirm --needed paru git wget curl fastfetch
 
 ## DEV TOOLS ##
-echo "Installing ghostty, fish, starship and eza"
+echo "Installing ghostty, fish, starship and eza..."
 silent paru -S --noconfirm --needed ghostty fish starship eza
+echo "Configuring default shell..."
+chsh -s (which fish)
 echo "Installing Rust toolchain..."
 silent paru -S --noconfirm --needed rustup
 silent rustup default stable
