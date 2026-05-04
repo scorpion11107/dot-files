@@ -38,8 +38,8 @@ silent paru -S --noconfirm --needed spotify
 ## GAMING APPS ##
 echo "Installing Steam..."
 silent paru -S --noconfirm --needed steam
-echo "Installing Modrinth from the AUR..."
-silent paru -S --noconfirm --needed modrinth-app
+echo "Installing CurseForge from the AUR..."
+silent paru -S --noconfirm --needed curseforge
 
 ## CONFIG ##
 echo "Backing up old config..."
