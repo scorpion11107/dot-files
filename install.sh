@@ -55,6 +55,9 @@ silent ln -sf "$(pwd)/config/fish/config.fish" ~/.config/fish/config.fish
 silent ln -sf "$(pwd)/config/fish/functions/update.fish" ~/.config/fish/functions/update.fish
 echo "starship"
 silent ln -sf "$(pwd)/config/starship.toml" ~/.config/starship.toml
+echo "helix"
+silent mkdir -p ~/.config/helix
+silent ln -sf "$(pwd)/config/helix/config.toml" ~/.config/helix/config.toml
 
 ## SSH KEY ##
 echo "Generating SSH key for GitHub"
