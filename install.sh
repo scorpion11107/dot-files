@@ -23,9 +23,8 @@ echo "Installing terminal tools"
 silent paru -S --noconfirm --needed ghostty fish starship eza wget curl fastfetch
 echo "Configuring default shell"
 silent sudo chsh -s $(which fish)
-echo "Installing NeoVim with LazyVim"
-silent paru -S --noconfirm --needed neovim
-silent git clone https://github.com/LazyVim/starter ~/.config/nvim
+echo "Installing Helix"
+silent paru -S helix
 echo "Installing VSCode"
 silent paru -S --noconfirm --needed visual-studio-code-bin
 echo "Installing Rust toolchain"
