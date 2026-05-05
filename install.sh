@@ -23,8 +23,9 @@ echo "Installing terminal tools"
 silent paru -S --noconfirm --needed ghostty fish starship eza wget curl fastfetch
 echo "Configuring default shell"
 silent sudo chsh -s $(which fish)
-echo "Installing NeoVim"
+echo "Installing NeoVim with LazyVim"
 silent paru -S --noconfirm --needed neovim
+silent git clone https://github.com/LazyVim/starter ~/.config/nvim
 echo "Installing VSCode"
 silent paru -S --noconfirm --needed visual-studio-code-bin
 echo "Installing Rust toolchain"
@@ -36,8 +37,6 @@ echo "Installing Discord"
 silent paru -S --noconfirm --needed discord
 echo "Installing Spotify"
 silent paru -S --noconfirm --needed spotify
-
-## GAMING APPS ##
 echo "Installing Steam"
 silent paru -S --noconfirm --needed steam
 echo "Installing CurseForge"
@@ -57,17 +56,6 @@ silent ln -sf "$(pwd)/config/fish/config.fish" ~/.config/fish/config.fish
 silent ln -sf "$(pwd)/config/fish/functions/update.fish" ~/.config/fish/functions/update.fish
 echo "starship"
 silent ln -sf "$(pwd)/config/starship.toml" ~/.config/starship.toml
-
-## CLEANUP ##
-echo "Removing orphan packages"
-ORPHANS=$(pacman -Qdtq)
-if [ -n "$ORPHANS" ]; then
-    silent sudo pacman -Rns --noconfirm $ORPHANS
-else
-    echo "No orphans found"
-fi
-echo "Clearing pacman and paru caches"
-silent sudo pacman -Sc --noconfirm && silent paru -Sc --noconfirm
 
 ## SSH KEY ##
 echo "Generating SSH key for GitHub"
