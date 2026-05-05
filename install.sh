@@ -13,36 +13,38 @@ silent() {
 }
 
 ## DEPENDENCIES ##
-echo "Updating system..."
+echo "Updating system"
 silent sudo pacman -Syu --noconfirm
-echo "Installing dependencies..."
-silent sudo pacman -S --noconfirm --needed paru git wget curl fastfetch
+echo "Installing paru"
+silent sudo pacman -S --noconfirm --needed paru
 
 ## DEV TOOLS ##
-echo "Installing ghostty, fish, starship and eza..."
-silent paru -S --noconfirm --needed ghostty fish starship eza
-echo "Configuring default shell..."
-chsh -s (which fish)
-echo "Installing Rust toolchain..."
+echo "Installing terminal tools"
+silent paru -S --noconfirm --needed ghostty fish starship eza wget curl fastfetch
+echo "Configuring default shell"
+silent sudo chsh -s $(which fish)
+echo "Installing NeoVim"
+silent paru -S --noconfirm --needed neovim
+echo "Installing VSCode"
+silent paru -S --noconfirm --needed visual-studio-code-bin
+echo "Installing Rust toolchain"
 silent paru -S --noconfirm --needed rustup
 silent rustup default stable
-echo "Installing VSCode from the AUR..."
-silent paru -S --noconfirm --needed visual-studio-code-bin
 
 ## APPS ##
-echo "Installing Discord..."
+echo "Installing Discord"
 silent paru -S --noconfirm --needed discord
-echo "Installing Spotify from the AUR..."
+echo "Installing Spotify"
 silent paru -S --noconfirm --needed spotify
 
 ## GAMING APPS ##
-echo "Installing Steam..."
+echo "Installing Steam"
 silent paru -S --noconfirm --needed steam
-echo "Installing CurseForge from the AUR..."
+echo "Installing CurseForge"
 silent paru -S --noconfirm --needed curseforge
 
 ## CONFIG ##
-echo "Backing up old config..."
+echo "Backing up old config"
 silent cp -r ~/.config ~/.config.backup.$(date +%Y%m%d%H%M%S)
 echo "Symlinking config files for:"
 echo "ghostty"
@@ -57,30 +59,23 @@ echo "starship"
 silent ln -sf "$(pwd)/config/starship.toml" ~/.config/starship.toml
 
 ## CLEANUP ##
-echo "Removing orphan packages..."
+echo "Removing orphan packages"
 ORPHANS=$(pacman -Qdtq)
 if [ -n "$ORPHANS" ]; then
     silent sudo pacman -Rns --noconfirm $ORPHANS
 else
-    echo "No orphans found."
+    echo "No orphans found"
 fi
-echo "Clearing pacman and paru caches..."
+echo "Clearing pacman and paru caches"
 silent sudo pacman -Sc --noconfirm && silent paru -Sc --noconfirm
 
-## WALLPAPERS ##
-echo "Copying wallpapers..."
-silent cp -r walls ~/Pictures
-
 ## SSH KEY ##
-echo "Creating git redirect for GitHub from HTTPS to SSH..."
-silent git config --global url."git@github.com:".insteadOf "https://github.com/"
-echo "Generating SSH key for GitHub..."
+echo "Generating SSH key for GitHub"
 if [ -f ~/.ssh/id_ed25519 ]; then
     echo "SSH key already exists, skipping"
 else
     silent ssh-keygen -t ed25519 -C "github" -f ~/.ssh/id_ed25519 -N ""
     silent ssh-add ~/.ssh/id_ed25519
-    echo ""
-    echo "Add the following public key to your GitHub account:"
-    cat ~/.ssh/id_ed25519.pub
 fi
+echo "Add the following public key to your GitHub account:"
+cat ~/.ssh/id_ed25519.pub
