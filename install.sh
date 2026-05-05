@@ -24,7 +24,7 @@ silent paru -S --noconfirm --needed ghostty fish starship eza wget curl fastfetc
 echo "Configuring default shell"
 silent sudo chsh -s $(which fish)
 echo "Installing Helix"
-silent paru -S --noconfirm -- needed helix
+silent paru -S --noconfirm --needed helix
 echo "Installing VSCode"
 silent paru -S --noconfirm --needed visual-studio-code-bin
 echo "Installing Rust toolchain"
