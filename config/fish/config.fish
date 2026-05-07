@@ -4,6 +4,7 @@ end
 
 # Aliases
 alias la "eza --oneline --long"
+alias hx helix
 
 # Starship
 starship init fish | source
