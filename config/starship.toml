@@ -15,7 +15,6 @@ truncate_to_repo = true
 style = "bold cyan"
 
 [git_branch]
-symbol = ""
 style = "bold purple"
 
 [git_status]
@@ -29,7 +28,6 @@ renamed = "»"
 deleted = "✘"
 
 [rust]
-symbol = ""
 style = "bold red"
 
 [python]
@@ -37,5 +35,5 @@ symbol = ""
 style = "bold yellow"
 
 [character]
-success_symbol = "[ \\$](bold bright-green)"
-error_symbol = "[ \\$](bold red)"
+success_symbol = "[\\$](bold bright-green)"
+error_symbol = "[\\$](bold red)"
