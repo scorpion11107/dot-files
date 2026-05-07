@@ -25,8 +25,6 @@ echo "Configuring default shell"
 silent sudo chsh -s $(which fish)
 echo "Installing Helix"
 silent paru -S --noconfirm --needed helix
-echo "Installing VSCode"
-silent paru -S --noconfirm --needed visual-studio-code-bin
 echo "Installing Rust toolchain"
 silent paru -S --noconfirm --needed rustup
 silent rustup default stable
