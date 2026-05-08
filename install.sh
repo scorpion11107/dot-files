@@ -45,7 +45,7 @@ echo "ghostty"
 silent rm -rf ~/.config/ghostty
 silent mkdir -p ~/.config/ghostty
 silent ln -sf "$(pwd)/config/ghostty/config.ghostty" ~/.config/ghostty/config.ghostty
-silent ln -sf "$(pwd)/config/ghostty/theme.ghostty" ~/.config/ghostty/theme.ghostty
+silent ln -sf "$(pwd)/config/ghostty/look.ghostty" ~/.config/ghostty/look.ghostty
 silent ln -sf "$(pwd)/config/ghostty/keybinds.ghostty" ~/.config/ghostty/keybinds.ghostty
 echo "fish"
 silent rm -rf ~/.config/fish
