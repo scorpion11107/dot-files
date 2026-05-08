@@ -42,6 +42,7 @@ echo "Backing up old config"
 silent cp -r ~/.config ~/.config.backup.$(date +%Y%m%d%H%M%S)
 echo "Symlinking config files for:"
 echo "ghostty"
+silent rm -rf ~/.config/ghostty
 silent mkdir -p ~/.config/ghostty
 silent ln -sf "$(pwd)/config/ghostty/config.ghostty" ~/.config/ghostty/config.ghostty
 echo "fish"
