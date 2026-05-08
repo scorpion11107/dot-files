@@ -46,6 +46,7 @@ silent rm -rf ~/.config/ghostty
 silent mkdir -p ~/.config/ghostty
 silent ln -sf "$(pwd)/config/ghostty/config.ghostty" ~/.config/ghostty/config.ghostty
 echo "fish"
+silent rm -rf ~/.config/fish
 silent mkdir -p ~/.config/fish
 silent mkdir -p ~/.config/fish/functions
 silent ln -sf "$(pwd)/config/fish/config.fish" ~/.config/fish/config.fish
@@ -54,6 +55,7 @@ silent ln -sf "$(pwd)/config/fish/functions/install-repos.fish" ~/.config/fish/f
 echo "starship"
 silent ln -sf "$(pwd)/config/starship.toml" ~/.config/starship.toml
 echo "helix"
+silent rm -rf ~/.config/helix
 silent mkdir -p ~/.config/helix
 silent ln -sf "$(pwd)/config/helix/config.toml" ~/.config/helix/config.toml
 
