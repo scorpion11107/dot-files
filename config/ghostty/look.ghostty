@@ -1,9 +1,6 @@
 theme = TokyoNight Storm
 font-family = JetBrainsMono Nerd Font Mono
 
-window-save-state = never
-confirm-close-surface = false
-
 window-width = 254
 window-height = 64
 
