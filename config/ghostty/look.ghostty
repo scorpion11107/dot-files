@@ -1,6 +1,4 @@
 theme = TokyoNight Storm
 font-family = JetBrainsMono Nerd Font Mono
 
-window-save-state = always
-
 focus-follows-mouse = true
