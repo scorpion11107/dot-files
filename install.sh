@@ -36,6 +36,8 @@ echo "Installing Steam"
 silent paru -S --noconfirm --needed steam
 echo "Installing ProtonUp QT"
 silent paru -S --noconfirm --needed protonup-qt
+echo "Installing xpadneo"
+silent paru -S --noconfirm --needed xpadneo-dkms
 echo "Installing CurseForge"
 silent paru -S --noconfirm --needed curseforge
 
