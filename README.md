@@ -16,11 +16,13 @@ Set the default terminal to Zellij
 ### KDE Plasma settings
 - Disable pointer acceleration
 - Enable NumLock on startup
+- Replace Konsole shortcut with WezTerm
 - Configure monitors
 - Disable Corner actions
 - Disable Edge barrier
 - Set global theme to Breeze dark
 - Set accent color to grey
+- Set default terminal to WezTerm
 - Configure screen dimming and automatic turn off timers
 - Set power profile to Performance
 - Disable session restore

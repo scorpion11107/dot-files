@@ -34,6 +34,8 @@ silent paru -S --noconfirm --needed curseforge
 ## DEV TOOLS ##
 echo
 echo "Dev tools:"
+echo "Installing WezTerm"
+silent paru -S --noconfirm --needed wezterm
 echo "Installing Helix"
 silent paru -S --noconfirm --needed helix
 echo "Installing Rust toolchain"
