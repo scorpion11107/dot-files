@@ -23,8 +23,7 @@ Set the default terminal to Zellij
 - Set global theme to Breeze dark
 - Set accent color to grey
 - Set default terminal to WezTerm
-- Configure screen dimming and automatic turn off timers
-- Set power profile to Performance
+- Configure Power settings
 - Disable session restore
 
 ## Once installed
