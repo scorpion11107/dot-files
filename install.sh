@@ -48,15 +48,6 @@ echo "Configurations:"
 echo "Backing up old config"
 silent cp -r ~/.config ~/.config.backup.$(date +%Y%m%d%H%M%S)
 echo "Symlinking config files for:"
-echo "fish"
-silent rm -rf ~/.config/fish
-silent mkdir -p ~/.config/fish
-silent mkdir -p ~/.config/fish/functions
-silent ln -sf "$(pwd)/config/fish/config.fish" ~/.config/fish/config.fish
-silent ln -sf "$(pwd)/config/fish/functions/update.fish" ~/.config/fish/functions/update.fish
-silent ln -sf "$(pwd)/config/fish/functions/install-repos.fish" ~/.config/fish/functions/install-repos.fish
-echo "starship"
-silent ln -sf "$(pwd)/config/starship.toml" ~/.config/starship.toml
 echo "helix"
 silent rm -rf ~/.config/helix
 silent mkdir -p ~/.config/helix
