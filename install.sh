@@ -23,7 +23,9 @@ silent paru -S --noconfirm --needed spotify
 
 ## GAMING APPS ##
 echo
-echo "Gaming apps:"
+echo "Gaming tweaks and apps:"
+echo "Installing CachyOS meta-packages"
+silent paru -S --noconfirm --needed cachyos-gaming-meta cachyos-gaming-applications
 echo "Installing ProtonUp QT"
 silent paru -S --noconfirm --needed protonup-qt
 echo "Installing CurseForge"
