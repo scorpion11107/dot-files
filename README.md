@@ -20,6 +20,7 @@ Set the default terminal to Zellij
 - Configure monitors
 - Disable Corner actions
 - Disable Edge barrier
+- Disable Shake pointer
 - Set global theme to Breeze dark
 - Set accent color to grey
 - Set default terminal to WezTerm
