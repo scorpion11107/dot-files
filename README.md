@@ -7,7 +7,7 @@
 - Create your git identity by running `git config --global user.name "Your Name"` and `git config --global user.email "your.email@example.com"`
 - Clone the repo through SSH
 - run the script using `cd dot-files && bash ./install.sh`
-- Update your system by running `update` (you may need to reload your shell for the function to work)
+- Update your system by running `update`
 - Reboot your system
 
 ### Apps
