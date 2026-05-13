@@ -1,4 +1,0 @@
-config-file = look.ghostty
-config-file = keybinds.ghostty
-
-command = /usr/bin/fish
