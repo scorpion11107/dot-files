@@ -1,7 +1,3 @@
-## INIT ##
-clear
-sudo -v
-
 ## HELPER FUNCTION ##
 silent() {
     if ! "$@" > /dev/null 2>&1; then
@@ -10,13 +6,14 @@ silent() {
     fi
 }
 
-## DEPENDENCIES ##
-echo "Updating system"
-silent sudo pacman -Syu --noconfirm
-echo "Installing paru"
-silent sudo pacman -S --noconfirm --needed paru
+## INIT ##
+clear
+sudo -v
 
-## DEV TOOLS ##
+echo "Updating system"
+silent paru -Syu --noconfirm
+
+## GENERAL UTILITIES ##
 echo "Installing terminal tools"
 silent paru -S --noconfirm --needed ghostty fish starship eza wget curl fastfetch
 echo "Configuring default shell"
