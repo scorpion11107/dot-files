@@ -34,8 +34,6 @@ silent paru -S --noconfirm --needed curseforge
 ## DEV TOOLS ##
 echo
 echo "Dev tools:"
-echo "Installing Zellij"
-silent paru -S --noconfirm --needed zellij
 echo "Installing Helix"
 silent paru -S --noconfirm --needed helix
 echo "Installing Rust toolchain"

@@ -16,7 +16,6 @@ Set the default terminal to Zellij
 ### KDE Plasma settings
 - Disable pointer acceleration
 - Enable NumLock on startup
-- Create Launch shortcut for Zellij
 - Configure monitors
 - Disable Corner actions
 - Disable Edge barrier
