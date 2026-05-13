@@ -1,0 +1,20 @@
+[general]
+live_config_reload = true
+import = [
+  keybindings.toml
+  theme.toml
+]
+
+[terminal]
+shell = "fish"
+
+[window]
+dynamic_padding = true
+resize_increments = true
+
+[window.domensions]
+columns = 250
+lines = 60
+
+[mouse]
+hide_when_typing = true
